@@ -1,0 +1,54 @@
+{
+  "name": "flitsr-extension",
+  "displayName": "FLITSR extension",
+  "description": "a tool to install FLITSR and also manage FLITSR analysis",
+  "version": "0.0.1",
+  "publisher": "Tash",
+  "repository": "https://github.com/adgsenpai/flitsr",
+  "license": "MIT",
+  
+  "engines": {
+    "vscode": "^1.60.0"
+  },
+  "activationEvents": [
+    "onView:flitsrInstallation"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "flitsrInstaller",
+          "title": "FLITSR Installer",
+          "icon": "resources/flitsr.svg"
+        }
+      ]
+    },
+    "views": {
+      "flitsrInstaller": [
+        {
+          "id": "flitsrInstallation",
+          "name": "Installation Check"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "flitsr.install",
+        "title": "Install FLITSR"
+      },
+      {
+        "command": "flitsr.promptAdmin",
+        "title": "Enter Admin Password"
+      }
+    ]
+  },
+  "scripts": {    
+    "build": "rm flitsr-extension-0.0.1.vsix && npm install -g vsce && vsce package && code --uninstall-extension Tash.flitsr-extension && code --install-extension flitsr-extension-0.0.1.vsix"
+  },
+  "devDependencies": {
+    "typescript": "^4.0.0",
+    "vscode": "^1.1.37",
+    "@types/node": "^14.0.0"
+  }
+}
