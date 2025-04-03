@@ -6,13 +6,11 @@
   "publisher": "Tash",
   "repository": "https://github.com/adgsenpai/flitsr",
   "license": "MIT",
-  
+  "icon": "resources/appicon.png",
   "engines": {
     "vscode": "^1.60.0"
   },
-  "activationEvents": [
-    "onView:flitsrInstallation"
-  ],
+  "activationEvents": ["onView:flitsrInstallation"],
   "main": "./dist/extension.js",
   "contributes": {
     "viewsContainers": {
@@ -43,7 +41,11 @@
       }
     ]
   },
-  "scripts": {    
+  "files": [
+    "resources/**",
+    "dist/**"
+  ],
+  "scripts": {
     "build": "rm flitsr-extension-0.0.1.vsix && npm install -g vsce && vsce package && code --uninstall-extension Tash.flitsr-extension && code --install-extension flitsr-extension-0.0.1.vsix"
   },
   "devDependencies": {
